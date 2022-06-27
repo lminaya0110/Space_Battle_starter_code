@@ -1,45 +1,64 @@
-//Player's stats
-const ourSpaceship = {
-    hull: 20,
-    firepower: 5,
-    accuracy: .7
-}
-
 //Enemy's range of stats
 const alienSpaceship = {
     hull: [3, 4, 5, 6],
     firepower: [2, 3, 4],
     accuracy: [.6, .7, .8]
 }
+
 //Random stat generators for alien invaders
 randomHull = alienSpaceship.hull[Math.floor(Math.random()*alienSpaceship.hull.length)];
 randomFirepower = alienSpaceship.firepower[Math.floor(Math.random()*alienSpaceship.firepower.length)];
 randomAccuracy = alienSpaceship.accuracy[Math.floor(Math.random()*alienSpaceship.accuracy.length)];
-
-
-//Begin Classes
 
 class alienInvaders {
     constructor(hull, firepower, accuracy) {
         this.hull = hull;
         this.firepower = firepower;
         this.accuracy = accuracy;
-        this.attack = this.attack.bind(this)
         }
-        
-        //method
-            attack = function() {
-            if(invaderShip.randomAccuracy > ourSpaceship.accuracy){
-                ourSpaceship.hull -= 1;
-                console.log('You\'ve been hit!!!');
+
+        attackHuman() {
+            if(invaderShip.accuracy > player1Ship.accuracy){
+                console.log('Youve been hit!!');
+                return player1Ship.hull -=1;
+            } else{
+                console.log('They missed!!')
             }
         }
+        //how do i make this attack come after player1;s???????
+        
     }  
 
     const invaderShip = new alienInvaders(randomHull, randomFirepower, randomAccuracy);
     console.log(invaderShip);
 
-    console.log(ourSpaceship.hull);
+    class player1 {
+        constructor(hull, firepower, accuracy) {
+            this.hull = hull;
+            this.firepower = firepower;
+            this.accuracy = accuracy;
+            }
+
+            attackAlien() {
+                if(player1Ship.accuracy > invaderShip.accuracy){
+                    console.log('You hit the ship!');
+                    return invaderShip.hull -=1;
+                } else{
+                    console.log('You missed!');
+                }
+            }
+    }
+
+    const player1Ship = new player1(20, 5, .7);
+    console.log(player1Ship);
+
+    player1Ship.attackAlien();
+    invaderShip.attackHuman();
+
+    console.log(invaderShip);
+    console.log(player1Ship);
+
+    
 
 
 
