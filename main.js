@@ -18,8 +18,13 @@ class alienInvaders {
         }
 
     }  
+
     let invaderShip = new alienInvaders(randomHull, randomFirepower, randomAccuracy);
 
+    // let alienHoarde = [];
+
+    // alienHoarde.push(new alienInvaders);
+    // console.log(alienHoarde)
 
 
     class player1 {
@@ -42,10 +47,6 @@ class alienInvaders {
     console.log(player1Ship);
 
 
-// const btnEl = document.querySelector('button')
-
-// btnEl.addEventListener('click', methodFromExample)
-
 
 
 
@@ -63,16 +64,14 @@ function startGame() {
     attackAlien();
     attackHuman();
 
-    
-
 }
 
 
 
     function attackAlien() {
         if(player1Ship.accuracy > invaderShip.accuracy){
-            alert('You hit the ship!');
-            return invaderShip.hull -=1;
+            alert('You hit the ship!')
+            return invaderShip.hull -=1
         } else{
             alert('You missed!');
         }
@@ -88,6 +87,8 @@ function startGame() {
             console.log('They missed!!')
         }
     }
+
+
 
 
 startGame();
